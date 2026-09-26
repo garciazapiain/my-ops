@@ -1,0 +1,13 @@
+# svc-api in the dev environment. Only overrides of charts/service/values.yaml go here.
+name: svc-api
+
+image:
+  repository: ghcr.io/garciazapiain/svc-api
+  # Updated automatically by svc-api's CI pipeline on every push to main.
+  tag: latest
+
+replicaCount: 1
+
+env:
+  APP_ENV: dev
+  LOG_LEVEL: debug

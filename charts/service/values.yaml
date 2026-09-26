@@ -1,0 +1,26 @@
+# Defaults for every service. Per-app, per-environment files in apps/<name>/<env>.yaml override these.
+
+# Name used for the Deployment, Service and labels (e.g. svc-api).
+name: ""
+
+image:
+  repository: ""
+  # CI rewrites this in apps/<name>/<env>.yaml on every build.
+  tag: latest
+  pullPolicy: IfNotPresent
+
+replicaCount: 1
+
+# Port the container listens on, and the port the Service exposes inside the cluster.
+containerPort: 8080
+servicePort: 80
+
+# Plain (non-secret) environment variables, e.g. APP_ENV, LOG_LEVEL.
+env: {}
+
+resources:
+  requests:
+    cpu: 25m
+    memory: 32Mi
+  limits:
+    memory: 128Mi
